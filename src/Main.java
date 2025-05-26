@@ -78,6 +78,7 @@ public class Main <T>  extends JFrame
         return panel;
     }
 
+    // note: i cannot combine textfield and textArea because different object/class
     private JTextField textfield(JTextField field, int x, int y, int width, int height)
     {
         field = new JTextField();
