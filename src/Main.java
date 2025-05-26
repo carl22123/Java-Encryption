@@ -39,15 +39,15 @@ public class Main <T>  extends JFrame
 
         // text fields and text areas
         TComponents[0] = (T) textfield(insertKey, 10,10,250,50);
-        TComponents[1] =(T) textArea(text, 10,100,250,250);
+        TComponents[1] = (T) textArea(text, 10,105,250,270);
 
         // Buttons
-        BComponent[0] = Button(generateKey, "Generate Key", 10,10,50,50,1);
-        BComponent[1] = Button(encrypt, "Encrypt",10, 10,50,50,2);
-        BComponent[2] = Button(decrypt, "Decrypt", 10, 10,50,50,3);
+        BComponent[0] = Button(generateKey, "Generate Key", 10,64,250,35,1);
+        BComponent[1] = Button(encrypt, "Encrypt",10, 380,120,50,2);
+        BComponent[2] = Button(decrypt, "Decrypt", 140, 380,120,50,3);
 
         // panels
-        add(panel(new JPanel(), Color.green, 10,10, 400, 440, (T[]) TComponents, (T[]) BComponent, 1));
+        add(panel(new JPanel(), Color.gray, 10,10, 400, 440, (T[]) TComponents, (T[]) BComponent, 1));
         add(panel(new JPanel(), Color.BLUE, 420,10, 250, 440, null, null, 2));
 
         setLocationRelativeTo(null); // I put it here so Frame will be in the Center
@@ -71,14 +71,13 @@ public class Main <T>  extends JFrame
                 panel.add((java.awt.Component) Component[i]);
 
             // Button
-            for(int j = 0; j < Component.length; j++)
+            for(int j = 0; j < SecondComponent.length; j++)
                 panel.add((java.awt.Component) SecondComponent[j]);
         }
 
         return panel;
     }
 
-    // this is how textfield is made
     private JTextField textfield(JTextField field, int x, int y, int width, int height)
     {
         field = new JTextField();
