@@ -86,11 +86,12 @@ public class Main <T> extends JFrame
                 if(specificButton == 2) // button 2 encrypt
                 {
                     function.setKey(insertKey.getText()); // get the key for the encryption
-                    output.setText(function.encrypt(text.getText())); // the output will be set output text area
+                    output.setText(function.encrypt(text.getText())); // the output will be the encrypted word from the text
                 }
                 if(specificButton == 3) // button 3 decrypt
                 {
-                    output.setText(function.decrypt(text.getText()));
+                    function.setKey(insertKey.getText()); // get the key for the encryption
+                    output.setText(function.decrypt(text.getText())); // the output will be the decrypted word from the text
                 }
             }
         });
