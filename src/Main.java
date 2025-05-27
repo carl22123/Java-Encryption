@@ -78,14 +78,19 @@ public class Main <T> extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                if(specificButton == 1)
+                if(specificButton == 1) // button 1 generateKey
                 {
-                    function.newKey();
-                    insertKey.setText(function.getKey());
+                    function.newKey(); // generate a key
+                    insertKey.setText(function.getKey()); // get the key and insert it in a text field
                 }
-                if(specificButton == 2)
+                if(specificButton == 2) // button 2 encrypt
                 {
-
+                    function.setKey(insertKey.getText()); // get the key for the encryption
+                    output.setText(function.encrypt(text.getText())); // the output will be set output text area
+                }
+                if(specificButton == 3) // button 3 decrypt
+                {
+                    output.setText(function.decrypt(text.getText()));
                 }
             }
         });

@@ -40,11 +40,6 @@ public class Function
     public String getKey()
     {
         String key = "";
-        for(Character x : list)
-        {
-            System.out.print(x);
-        }
-        System.out.println();
         for(Character x : shuffledList)
         {
            key = key + x.toString();
@@ -61,7 +56,7 @@ public class Function
         }
     }
 
-    private void encrypt(String message)
+    public String encrypt(String message)
     {
         letters = message.toCharArray();
 
@@ -76,12 +71,33 @@ public class Function
                 }
             }
         }
-        System.out.println("Encrypted: ");
-        for(char x : letters)
+        String outputMessage = "";
+        for(char x : letters) // put the char to a string
         {
-            System.out.print(x);
+            outputMessage = outputMessage + x;
         }
-        System.out.println();
+        return outputMessage;
     }
 
+    public String decrypt(String message)
+    {
+        letters = message.toCharArray();
+        for(int i =0;i<letters.length;i++)
+        {
+            for(int j =0;j<shuffledList.size();j++)
+            {
+                if(letters[i]==shuffledList.get(j))
+                {
+                    letters[i]=list.get(j);
+                    break;
+                }
+            }
+        }
+        String outputMessage = "";
+        for(char x : letters) // put the char to a string
+        {
+            outputMessage = outputMessage + x;
+        }
+        return outputMessage;
+    }
 }
