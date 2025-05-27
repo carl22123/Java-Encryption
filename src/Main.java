@@ -1,13 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import static java.lang.reflect.Array.set;
 
 public class Main <T> extends JFrame
 {
-    private JTextField insertKey;
-    private JTextArea text, output ;
+    private Function function = new Function(); // this is a class within the project
+
+    // note: InsertKey, text, and output are structured in this way, allowing the text to be included
+    private JTextField insertKey = new JTextField();
+    private JTextArea text = new JTextArea() ;
+    private JTextArea output = new JTextArea();
+
     private JButton generateKey, encrypt, decrypt;
 
     // array for there prespective components
@@ -50,25 +57,38 @@ public class Main <T> extends JFrame
     // note: i cannot combine textfield and textArea because different object/class
     private JTextField textfield(JTextField field, int x, int y, int width, int height)
     {
-        field = new JTextField();
         field.setBounds(x, y, width, height);
-
         return field;
     }
 
     private JTextArea textArea(JTextArea field, int x, int y, int width, int height)
     {
-        field = new JTextArea();
         field.setBounds(x, y, width, height);
-
         return field;
     }
 
-    private JButton Button(JButton button, String buttonText, int x, int y, int width, int height, int specificTextField)
+    private JButton Button(JButton button, String buttonText, int x, int y, int width, int height, int specificButton)
     {
         button = new JButton();
         button.setBounds(x,y,width,height);
         button.setText(buttonText);
+
+        button.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                if(specificButton == 1)
+                {
+                    function.newKey();
+                    insertKey.setText(function.getKey());
+                }
+                if(specificButton == 2)
+                {
+
+                }
+            }
+        });
 
         return button;
     }
